@@ -1,6 +1,6 @@
-Check these exercises later:
+Check these exercises later to remember some cases:
 level_0:    strlen.sh
-level_1:
+level_1:    swap.c (remember pointers), repeat_alpha.c (ascii 65, 97)
 level_2:
 level_3:
 level_4:

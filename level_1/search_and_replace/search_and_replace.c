@@ -27,3 +27,32 @@ ZaZ eT David aiME le METal.$
 $>./search_and_replace "wNcOre Un ExEmPle Pas Facilw a Ecrirw " "w" "e" | cat -e
 eNcOre Un ExEmPle Pas Facile a Ecrire $
 */
+#include <unistd.h>
+
+void ft_putchar(char c){
+    write(1,&c,1);
+}
+
+int ft_stlen(char *str){
+    int i=0;
+    while(str[i] != '\0'){
+        i++;
+    }
+    return i;
+}
+int main(int argc, char** argv){
+    if(argc == 4 && ft_stlen(argv[2]) == 1 && ft_stlen(argv[3]) ==1){
+        int i=0;
+        while (argv[1][i] != '\0'){
+            if(argv[1][i] == argv[2][0]){
+                argv[1][i] = argv[3][0];
+                ft_putchar(argv[1][i]);
+            } else {
+                ft_putchar(argv[1][i]);
+            }
+            i++;
+        }
+    }
+    ft_putchar('\n');
+    return 0;
+}

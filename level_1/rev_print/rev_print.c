@@ -18,3 +18,21 @@ LIOP a 0bud$
 $> ./rev_print | cat -e
 $
 */
+
+// ^@ Non-Printing Characters https://docstore.mik.ua/orelly/unix2.1/upt/ch25_07.htm
+#include <unistd.h>
+
+int main(int argc, char **argv){
+    if(argc==2){
+        int len = 0;
+        while(argv[1][len] != '\0'){
+            len++;
+        }
+        while(len >= 0){
+            write(1,&argv[1][len], 1);
+            len--;
+        }
+    }
+    write(1,"\n",1);
+    return 0;
+}
