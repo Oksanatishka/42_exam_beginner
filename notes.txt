@@ -1,0 +1,9 @@
+Check these exercises later:
+level_0:    strlen.sh
+level_1:
+level_2:
+level_3:
+level_4:
+level_5:
+
+------------------------------
