@@ -8,6 +8,8 @@ level_1:
 
 level_2: (reproduce standard f-ns)   
         ft_atoi (remember to manage negative numbers and ' ' || '\n'|| '\t'|| '\r'|| '\f'|| '\v' symbols)
+        ft_strdup (remember to calculate length of the string, then allocate memory for a new string, and copy each character one by one)
+
 
 level_3:
 
