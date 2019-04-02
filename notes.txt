@@ -1,13 +1,18 @@
 Check these exercises later to remember some cases:
 level_0:    
         strlen.sh
+
 level_1:    
         swap.c (remember pointers)
         repeat_alpha.c (ascii 65, 97)
-level_2:    
+
+level_2: (reproduce standard f-ns)   
         ft_atoi (remember to manage negative numbers and ' ' || '\n'|| '\t'|| '\r'|| '\f'|| '\v' symbols)
+
 level_3:
+
 level_4:
+
 level_5:
 
 ------------------------------
