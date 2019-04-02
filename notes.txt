@@ -6,10 +6,10 @@ level_1:
         swap.c (remember pointers)
         repeat_alpha.c (ascii 65, 97)
 
-level_2: (reproduce standard f-ns)   
+level_2: (reproduce standard f-ns, exercises on strings and integers)   
         ft_atoi (remember to manage negative numbers and ' ' || '\n'|| '\t'|| '\r'|| '\f'|| '\v' symbols)
         ft_strdup (remember to calculate length of the string, then allocate memory for a new string, and copy each character one by one)
-
+        last_word (to find the index of last word: (i == '' && i+1 >= 33 && i+1 <= 127) ? j=i+1 : i++
 
 level_3:
 

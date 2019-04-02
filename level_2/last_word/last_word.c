@@ -25,3 +25,23 @@ $> ./last_word "  lorem,ipsum  " | cat -e
 lorem,ipsum$
 $>
 */
+#include <unistd.h>
+
+int main(int argc, char **argv){
+    int indexOfLastWord = 0;
+    int len = 0;
+    if(argc==2){
+        while(argv[1][len] != '\0'){
+            if(argv[1][len] == ' ' && argv[1][len+1] >=33 && argv[1][len+1] <=127 ){
+                indexOfLastWord = len+1;
+            }
+            len++;
+        }
+        while(argv[1][indexOfLastWord] >=33 && argv[1][indexOfLastWord] <=127){
+            write(1, &argv[1][indexOfLastWord],1);
+            indexOfLastWord++;
+        }
+    }
+    write(1,"\n",1);
+    return 0;
+}
