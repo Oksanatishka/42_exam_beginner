@@ -28,3 +28,31 @@ $> ./do_op "1" "+" "-43" | cat -e
 $> ./do_op | cat -e
 $
 */
+
+#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char **argv){
+    if(argc == 4){
+        int result = 0;
+        signed int num1 = atoi(argv[1]);
+        signed int num2 = atoi(argv[3]);
+        
+        if(argv[2][0] == '+'){
+            result = num1 + num2;
+        } else if(argv[2][0] == '-'){
+            result = num1 - num2;
+        } else if(argv[2][0] == '/'){
+            result = num1 / num2;
+        } else if(argv[2][0] == '*'){
+            result = num1 * num2;
+        } else if(argv[2][0] == '%'){
+            result = num1 % num2;
+        } 
+        printf("%d", result);
+    }
+    
+    printf("\n");
+    return 0;
+}

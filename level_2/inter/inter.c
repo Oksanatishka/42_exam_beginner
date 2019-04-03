@@ -23,3 +23,40 @@ rien$
 $>./inter | cat -e
 $
 */
+
+#include <unistd.h>
+
+int checkIfNotDoubles(char *str, char c, int index){
+    int i=0;
+    while(i < index){
+        if(str[i] == c){
+            return 0;
+        }
+        i++;
+    }
+    return 1;
+}
+
+int main(int argc, char** argv){
+    if(argc == 3){
+        int i=0;
+        int j;
+        
+
+        while(argv[1][i]){
+            if(checkIfNotDoubles(argv[1], argv[1][i], i) == 1){
+                j = 0;
+                while(argv[2][j]){
+                    if(argv[1][i] == argv[2][j]){
+                        write(1,&argv[1][i],1);
+                        break ;
+                    }
+                    j++;
+                }
+            }
+            i++;
+        }
+    }
+    write(1,"\n",1);
+    return 0;
+}
