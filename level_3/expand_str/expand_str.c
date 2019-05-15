@@ -26,3 +26,62 @@ $> ./expand_str "" | cat -e
 $
 $>
 */
+
+/*
+** 1. ft_strlen
+** 2. ft_isspace
+** 3. expand_str
+*/
+
+#include <unistd.h>
+
+int ft_strlen(char *str)
+{
+    int i = 0;
+    while (str[i] != '\0')
+    {
+        i++;
+    }
+    return i;
+}
+
+int ft_isspace(char c)
+{
+    return (c == ' ' || c == '\t' ? 1 : 0);
+}
+
+int main(int argc, char **argv)
+{
+    if (argc == 2)
+    {
+        int i = 0;
+        int len = ft_strlen(argv[1]) - 1;
+        while (ft_isspace(argv[1][i]))
+        {
+            i++;
+        }
+        while (ft_isspace(argv[1][len]))
+        {
+            len--;
+        }
+        while (i <= len)
+        {
+            if (ft_isspace(argv[1][i]))
+            {
+                while (ft_isspace(argv[1][i]))
+                {
+                    i++;
+                }
+                write(1, "   ", 3);
+            }
+            if (argv[1][i] && !ft_isspace(argv[1][i]))
+            {
+                write(1, &argv[1][i], 1);
+            }
+            i++;
+        }
+    }
+    write(1, "\n", 1);
+
+    return 0;
+}
