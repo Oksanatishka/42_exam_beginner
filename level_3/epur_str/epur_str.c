@@ -26,3 +26,63 @@ $> ./epur_str "" | cat -e
 $
 $>
 */
+
+#include <unistd.h>
+
+int ft_strlen(char *str)
+{
+    int i = 0;
+    while (str[i] != '\0')
+    {
+        i++;
+    }
+    return i;
+}
+
+int ft_isspace(char c)
+{
+    return (c == ' ' || c == '\t' ? 1 : 0); // || c == '\n' || c == '\v' || c == '\f' || c == '\r'
+}
+
+void epur_str(char *str)
+{
+    int i = 0;
+    int len = ft_strlen(str) - 1;
+
+    // no spaces at the beginning
+    while (ft_isspace(str[i]))
+    {
+        i++;
+    }
+    // no spaces at the end
+    while (ft_isspace(str[len]))
+    {
+        len--;
+    }
+    while (i <= len)
+    {
+        if (ft_isspace(str[i]))
+        {
+            while (ft_isspace(str[i]))
+            {
+                i++;
+            }
+            write(1, " ", 1);
+        }
+        if (str[i] && !ft_isspace(str[i]))
+        {
+            write(1, &str[i], 1);
+        }
+        i++;
+    }
+}
+
+int main(int argc, char **argv)
+{
+    if (argc == 2)
+    {
+        epur_str(argv[1]);
+    }
+    write(1, "\n", 1);
+    return 0;
+}
