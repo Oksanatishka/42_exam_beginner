@@ -29,42 +29,49 @@ $
 
 #include <unistd.h>
 
-// int main(int argc, char **argv){
-//     if(argc==3){
-//         int i =0;
-//         int j= 0;
-        
-//         int len = 0;
+int ft_strlen(char *str)
+{
+    int i = 0;
+    while (str[i] != '\0')
+    {
+        i++;
+    }
+    return i;
+}
 
-//         while(argv[1][len]){
-//             len++;
-//         }
-//         char *result[len];
+void ft_putstr(char *str)
+{
+    write(1, str, ft_strlen(str));
+}
 
-//         while(argv[1][i]){
-//             while(argv[2][j]){
-//                 if(argv[1][i] == argv[2][j]){
-//                     result[i] = argv[1][i];
-//                 }
-//                 j++;
-//             }
-//             i++;
-//         }
-//         i = 0;
-//         while(i<len){
-//             if(result[i] != argv[1][i] ){
-//                 write(1,"\n",1);
-//                 return 0;
-//             }
-//         }
-//         i = 0;
-//         while(i<len){
-//             write(1,result[i],1);
-//             i++;
-//         }
-    
-//         return 0;
-//     }
-//     write(1,"\n",1);
-//     return 0;
-// }
+int main(int argc, char **argv)
+{
+    int i = 0;
+    int j = 0;
+    int resLength = 0;
+
+    if (argc == 3)
+    {
+        while (argv[1][i] != '\0')
+        {
+            while (argv[2][j] != '\0')
+            {
+                if (argv[1][i] == argv[2][j])
+                {
+                    resLength++;
+                    j++;
+                    break;
+                }
+                j++;
+            }
+            i++;
+        }
+        if (resLength == ft_strlen(argv[1]))
+        {
+            ft_putstr(argv[1]);
+        }
+    }
+
+    write(1, "\n", 1);
+    return 0;
+}
