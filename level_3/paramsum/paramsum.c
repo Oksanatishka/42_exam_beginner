@@ -19,3 +19,24 @@ $>./paramsum | cat -e
 0$
 $>
 */
+
+#include <unistd.h>
+
+void ft_putchar(char c)
+{
+    write(1, &c, 1);
+}
+
+void ft_putnbr(int n)
+{
+    n > 9 ? ft_putnbr(n / 10) : 0;
+    ft_putchar(n % 10 + 48);
+}
+
+int main(int argc, char **argv)
+{
+    // (void)argv;
+    ft_putnbr(argc - 1);
+    write(1, "\n", 1);
+    return (0);
+}
