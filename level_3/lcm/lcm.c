@@ -28,3 +28,35 @@ Your function must be prototyped as follows:
 
 unsigned int lcm(unsigned int a, unsigned int b);
 */
+
+unsigned int hcf(unsigned int a, unsigned int b)
+{
+  unsigned int i;
+  unsigned int max;
+
+  i = 1;
+  max = 0;
+  while (i <= a && i <= b)
+  {
+    if (!(a % i) && !(b % i))
+      max = i;
+    i++;
+  }
+  return (max);
+}
+
+unsigned int lcm(unsigned int a, unsigned int b)
+{
+  if (!a || !b)
+    return (0);
+  return ((a * b) / hcf(a, b));
+}
+
+// #include <stdio.h>
+// int main()
+// {
+//   int res = lcm(2, 3); // 6
+//   printf("%d\n", res);
+
+//   return 0;
+// }
